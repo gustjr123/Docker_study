@@ -1,5 +1,8 @@
 FROM python:3.8-slim-buster
 
+# 컨테이너가 연결할 포트, Flask는 기본적으로 포트 5000
+EXPOSE 5000
+
 # docker내 기본 디렉토리 경로
 WORKDIR /app
 
