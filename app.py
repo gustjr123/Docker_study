@@ -12,7 +12,7 @@ def rundb():
     mydb = pymysql.connect(
         user='DB_USER',
         password='DB_PASSWORD',
-        table='DB_NAME',
+        database='DB_NAME',
         hosts='DB_HOST',
         charset='utf8'
     )
