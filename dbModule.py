@@ -1,11 +1,17 @@
 import pymysql
+import os
 
 class Database():
     def __init__(self):
-        self.db = pymysql.connect(host='devops-cd.cldqdwlkg9c1.ap-northeast-2.rds.amazonaws.com',
-                                  user='admin',
-                                  password='admin1234',
-                                  db='flask_db',
+        DB_user = os.environ.get('DB_USER')
+        DB_pass = os.environ.get('DB_PASSWORD')
+        DB_name = os.environ.get('DB_NAME')
+        DB_host = os.environ.get('DB_HOST')
+
+        self.db = pymysql.connect(host=DB_host,
+                                  user=DB_user,
+                                  password=DB_pass,
+                                  db=DB_name,
                                   charset='utf8')
         self.cursor = self.db.cursor(pymysql.cursors.DictCursor)
 
